@@ -7,19 +7,26 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class EventThumbnailComponent implements OnInit {
   @Input() event;
-  timeLabel: string;
 
-  ngOnInit() {
+  getStartTimeClass() {
+    const isEarlyStart = this.event && this.event.time === '8:00 am';
+    return { highlight: isEarlyStart, bold: isEarlyStart };
+  }
+
+  getTimeLabel() {
     // determine the message based on event time
     switch (this.event.time) {
       case '8:00 am':
-        this.timeLabel = '(Early Start)';
-        break;
+        return '(Early Start)';
       case '10:00 am':
-        this.timeLabel = '(Late Start)';
-        break;
+        return '(Late Start)';
       default:
-        this.timeLabel = '(Normal Start)';
+        return '(Normal Start)';
     }
   }
+
+  ngOnInit() {
+
+  }
+
 }

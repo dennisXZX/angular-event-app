@@ -3,7 +3,7 @@
   <h2>{{event?.name}}</h2>
   <div>Date: {{event?.date}}</div>
 
-  <div>Time: {{event?.time}} {{timeLabel}}</div>
+  <div [ngClass]="getStartTimeClass()">Time: {{event?.time}} {{getTimeLabel()}}</div>
 
   <div>Price: ${{event?.price}}</div>
 
