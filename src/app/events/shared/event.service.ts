@@ -2,9 +2,16 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class EventService {
+  // get all events
   getEvents() {
     return EVENTS;
   }
+
+  // get a single event by id
+  getEvent(id: number) {
+    return EVENTS.find(event => event.id === id);
+  }
+
 }
 
 const EVENTS = [
