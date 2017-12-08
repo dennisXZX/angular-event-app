@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { EventsListComponent } from './events/events-list.component';
-import { EventThumbnailComponent } from './events/event-thumbnail.component';
-import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { NavbarComponent } from './nav/navbar.component';
+import { EventsListComponent } from './events/events-list/events-list.component';
+import { EventThumbnailComponent } from './events/event-thumbnail/event-thumbnail.component';
+import { EventDetailsComponent } from './events/event-details/event-details.component';
+import { CreateEventComponent } from './events/create-event/create-event.component';
 
 import { EventService } from './events/shared/event.service';
 import { ToastrService } from './common/toastr.service';
@@ -16,10 +17,11 @@ import { appRoutes } from './routes';
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
     EventsListComponent,
     EventThumbnailComponent,
     EventDetailsComponent,
-    NavbarComponent
+    CreateEventComponent
   ],
   imports: [
     BrowserModule,
