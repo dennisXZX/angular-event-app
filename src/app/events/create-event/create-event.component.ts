@@ -5,8 +5,10 @@ import { Router } from '@angular/router';
   templateUrl: 'create-event.component.html'
 })
 export class CreateEventComponent {
-  constructor(private _router: Router) {
+  isDirty: boolean;
 
+  constructor(private _router: Router) {
+    this.isDirty = true;
   }
 
   cancel() {

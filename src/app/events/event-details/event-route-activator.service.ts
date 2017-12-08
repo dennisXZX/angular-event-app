@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, Router } from '@angular/router';
 import { EventService } from '../shared/event.service';
+import { CreateEventComponent } from '../create-event/create-event.component';
 
 @Injectable()
-export class EventRouteActivator implements CanActivate {
+export class EventRouteActivator implements CanActivate, CanDeactivate<CreateEventComponent> {
   constructor(private _eventService: EventService,
               private _router: Router) {
 
@@ -23,4 +24,13 @@ export class EventRouteActivator implements CanActivate {
 
     return eventExists;
   }
+
+  canDeactivate(component: CreateEventComponent) {
+    if (component.isDirty) {
+      return window.confirm('You have not saved this event, do you really want to cancel?');
+    } else {
+      return true;
+    }
+  }
+
 }

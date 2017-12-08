@@ -37,8 +37,9 @@ import { appRoutes } from './routes';
   providers: [
     EventService,
     ToastrService,
-    EventRouteActivator
+    EventRouteActivator,
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
