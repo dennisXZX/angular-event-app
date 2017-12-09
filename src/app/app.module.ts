@@ -16,6 +16,7 @@ import { Error404Component } from './errors/404.component';
 import { EventService } from './events/shared/event.service';
 import { ToastrService } from './common/toastr.service';
 import { EventRouteActivator } from './events/event-details/event-route-activator.service';
+import { EventListResolver } from './events/events-list/event-list-resolver.service';
 
 // routes
 import { appRoutes } from './routes';
@@ -38,6 +39,7 @@ import { appRoutes } from './routes';
     EventService,
     ToastrService,
     EventRouteActivator,
+    EventListResolver
   ],
   bootstrap: [AppComponent]
 })
