@@ -10,6 +10,10 @@
   display: none;
 }
 
+li > a.active {
+  color: #f97924;
+}
+
 @media (min-width: 1000px) {
   #searchForm {
     display: block;
