@@ -6,12 +6,14 @@ import { Subject } from 'rxjs/RX';
 export class EventService {
   // get all events
   getEvents() {
+    // subject is an observable
     const subject = new Subject();
 
+    // simulate asynchronous data retrieval using an observable
     setTimeout(() => {
       subject.next(EVENTS);
       subject.complete();
-    }, 1000);
+    }, 100);
 
     return subject;
   }
