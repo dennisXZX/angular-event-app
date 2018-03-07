@@ -4,6 +4,7 @@ import { Subject } from 'rxjs/RX';
 
 @Injectable()
 export class EventService {
+
   // get all events
   getEvents() {
     // subject is an observable

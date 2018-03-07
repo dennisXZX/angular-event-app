@@ -9,16 +9,17 @@ import { ActivatedRoute } from '@angular/router';
 export class EventsListComponent implements OnInit {
   events: any;
 
-  constructor(private _toastrService: ToastrService,
-              private _route: ActivatedRoute) {
+  constructor(private toastrService: ToastrService,
+              private route: ActivatedRoute) {
 
   }
 
   handleThumbnailClick(eventName) {
-    this._toastrService.success(eventName);
+    console.log('click');
+    this.toastrService.success(eventName);
   }
 
   ngOnInit() {
-    this.events = this._route.snapshot.data['events'];
+    this.events = this.route.snapshot.data['events'];
   }
 }
