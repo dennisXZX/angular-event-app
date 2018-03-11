@@ -9,3 +9,4 @@ export * from './events-list/event-list-resolver.service';
 export * from './event-details/event-route-activator.service';
 export * from './events-list/event-list-resolver.service';
 export * from './shared/event.service';
+export * from './shared/event.model';
