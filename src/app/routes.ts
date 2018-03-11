@@ -1,15 +1,25 @@
 import { Routes } from '@angular/router';
 
 // components
-import { EventsListComponent } from './events/events-list/events-list.component';
-import { EventDetailsComponent } from './events/event-details/event-details.component';
-import { CreateEventComponent } from './events/create-event/create-event.component';
+import {
+  EventsListComponent,
+  EventDetailsComponent,
+  CreateEventComponent
+} from './events/index';
 import { Error404Component } from './errors/404.component';
 
 // services
-import { EventRouteActivator } from './events/event-details/event-route-activator.service';
-import { EventListResolver } from './events/events-list/event-list-resolver.service';
+import {
+  EventRouteActivator,
+  EventListResolver
+} from './events/index';
 
+/*
+* resolver is some code which can be executed when a link has been clicked and before a component is loaded.
+* before resolving the 'events' route, call the EventListResolver service,
+* and when the resolver finishes, add the returned data to the route with a property named 'events'
+* EventListResolver is responsible for fetching the events from API
+* */
 export const appRoutes: Routes = [
   { path: 'events/new', component: CreateEventComponent, canDeactivate: [EventRouteActivator] },
   { path: 'events', component: EventsListComponent, resolve: { events: EventListResolver } },

@@ -15,7 +15,6 @@ export class EventsListComponent implements OnInit {
   }
 
   handleThumbnailClick(eventName) {
-    console.log('click');
     this.toastrService.success(eventName);
   }
 

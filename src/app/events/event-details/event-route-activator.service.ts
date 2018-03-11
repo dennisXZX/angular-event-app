@@ -5,8 +5,8 @@ import { CreateEventComponent } from '../create-event/create-event.component';
 
 @Injectable()
 export class EventRouteActivator implements CanActivate, CanDeactivate<CreateEventComponent> {
-  constructor(private _eventService: EventService,
-              private _router: Router) {
+  constructor(private eventService: EventService,
+              private router: Router) {
 
   }
 
@@ -15,13 +15,15 @@ export class EventRouteActivator implements CanActivate, CanDeactivate<CreateEve
     const id = parseInt(route.params['id'], 10);
 
     // use !! to cast the result into a boolean value
-    const eventExists = !!this._eventService.getEvent(id);
+    const eventExists = !!this.eventService.getEvent(id);
 
     // if there is no event matching the id, redirect user to a 404 page
     if (!eventExists) {
-      this._router.navigate(['/404']);
+      this.router.navigate(['/404']);
     }
 
+    // canActivate must return a boolean value
+    // return true indicates the route can be accessed, false indicates the route cannot be accessed
     return eventExists;
   }
 

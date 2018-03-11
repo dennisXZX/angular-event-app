@@ -7,7 +7,7 @@ export class EventService {
 
   // get all events
   getEvents() {
-    // subject is an observable
+    // subject is both an observable and an observer
     const subject = new Subject();
 
     // simulate asynchronous data retrieval using an observable

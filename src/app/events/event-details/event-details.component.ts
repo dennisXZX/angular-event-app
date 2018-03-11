@@ -10,16 +10,16 @@ export class EventDetailsComponent implements OnInit {
 
   event: any;
 
-  constructor(private _eventService: EventService,
-              private _route: ActivatedRoute) {
+  constructor(private eventService: EventService,
+              private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
     // get the id parameter from URL and convert it into a number
-    const id: number = parseInt(this._route.snapshot.params['id'], 10);
+    const id: number = parseInt(this.route.snapshot.params['id'], 10);
 
-    this.event = this._eventService.getEvent(id);
+    this.event = this.eventService.getEvent(id);
   }
 
 }
