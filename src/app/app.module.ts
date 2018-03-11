@@ -22,6 +22,7 @@ import { ToastrService } from './common/toastr.service';
 
 // routes
 import { appRoutes } from './routes';
+import { AuthService } from "./user/auth.service";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { appRoutes } from './routes';
     EventService,
     ToastrService,
     EventRouteActivator,
-    EventListResolver
+    EventListResolver,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
