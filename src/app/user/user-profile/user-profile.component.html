@@ -12,11 +12,11 @@
 
         <!-- error messages -->
         <span class="warning-message"
-              *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.required">
+              *ngIf="!validateFirstName() && firstName.errors.required">
           Required
         </span>
         <span class="warning-message"
-              *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.pattern">
+              *ngIf="!validateFirstName() && firstName.errors.pattern">
           Must start with a letter
         </span>
 

@@ -9,8 +9,8 @@ import { Router } from "@angular/router";
 })
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
-  private firstName: FormControl;
-  private lastName: FormControl;
+  firstName: FormControl;
+  lastName: FormControl;
 
   constructor(private authService: AuthService,
               private router: Router) {
