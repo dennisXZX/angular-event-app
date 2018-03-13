@@ -53,15 +53,23 @@
     <div class="form-group" [ngClass]="{ 'error': abstract.invalid && abstract.dirty }">
       <label for="abstract">Abstract:</label>
       <!-- error message -->
-      <span class="warning-message" *ngIf="abstract.invalid && abstract.dirty">Required</span>
-      <span class="warning-message" *ngIf="abstract.invalid && abstract.dirty && abstract?.errors.maxLength">
+      <span class="warning-message"
+            *ngIf="abstract.invalid && abstract.dirty && abstract?.errors.required">
+        Required
+      </span>
+      <span class="warning-message"
+            *ngIf="abstract.invalid && abstract.dirty && abstract?.errors.maxLength">
         Cannot exceed 400 characters
+      </span>
+      <span class="warning-message"
+            *ngIf="abstract.invalid && abstract.dirty && abstract?.errors.restrictedWords">
+        Restricted words found: {{ abstract.errors.restrictedWords }}
       </span>
       <textarea formControlName="abstract" id="abstract" rows=3
                 class="form-control" placeholder="abstract..."></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button [disabled]="newSessionForm.invalid" type="submit" class="btn btn-primary">Save</button>
     <button type="button" class="btn btn-default">Cancel</button>
   </form>
 </div>

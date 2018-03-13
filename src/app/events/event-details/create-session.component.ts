@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { ISession } from "../";
+import { ISession } from "../index";
+import { restrictedWords } from "../shared/restricted-words-validator";
 
 @Component({
   templateUrl: 'create-session.component.html',
@@ -14,6 +15,25 @@ export class CreateSessionComponent implements OnInit {
   level: FormControl;
   abstract: FormControl;
 
+  ngOnInit() {
+    this.name = new FormControl('', Validators.required);
+    this.presenter = new FormControl('', Validators.required);
+    this.duration = new FormControl('', Validators.required);
+    this.level = new FormControl('', Validators.required);
+    this.abstract = new FormControl('', [
+      // apply a custom validator function 'this.restrictedWords'
+      Validators.required, Validators.maxLength(600), restrictedWords(['foo', 'bar'])
+    ]);
+
+    this.newSessionForm = new FormGroup({
+      name: this.name,
+      presenter: this.presenter,
+      duration: this.duration,
+      level: this.level,
+      abstract: this.abstract
+    });
+  }
+
   saveSession(formValues) {
     const session: ISession = {
       id: undefined,
@@ -26,19 +46,5 @@ export class CreateSessionComponent implements OnInit {
     };
   }
 
-  ngOnInit() {
-    this.name = new FormControl('', Validators.required);
-    this.presenter = new FormControl('', Validators.required);
-    this.duration = new FormControl('', Validators.required);
-    this.level = new FormControl('', Validators.required);
-    this.abstract = new FormControl('', [Validators.required, Validators.maxLength(600)]);
 
-    this.newSessionForm = new FormGroup({
-      name: this.name,
-      presenter: this.presenter,
-      duration: this.duration,
-      level: this.level,
-      abstract: this.abstract
-    });
-  }
 }
