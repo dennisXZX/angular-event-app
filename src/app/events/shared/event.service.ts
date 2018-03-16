@@ -7,7 +7,6 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class EventService {
 
-  // get all events
   getEvents(): Observable<IEvent[]> {
     // subject is both an observable and an observer
     const subject = new Subject<IEvent[]>();
@@ -26,11 +25,17 @@ export class EventService {
     return EVENTS.find(event => event.id === id);
   }
 
-  // save an event
   saveEvent(event) {
     event.id = 999;
     event.session = [];
     EVENTS.push(event);
+  }
+
+  updateEvent(event: IEvent) {
+    // find the event that need to be updated
+    const index = EVENTS.findIndex(e => e.id === event.id);
+    // update the event
+    EVENTS[index] = event;
   }
 
 }
