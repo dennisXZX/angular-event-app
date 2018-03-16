@@ -15,7 +15,8 @@ import {
   EventRouteActivator,
   EventService,
   EventListResolver,
-  CreateSessionComponent
+  CreateSessionComponent,
+  SessionListComponent
 } from './events/index';
 import { Error404Component } from './errors/404.component';
 
@@ -35,6 +36,7 @@ import { appRoutes } from './routes';
     EventDetailsComponent,
     CreateEventComponent,
     CreateSessionComponent,
+    SessionListComponent,
     Error404Component
   ],
   imports: [
