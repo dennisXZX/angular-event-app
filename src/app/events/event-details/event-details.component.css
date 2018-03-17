@@ -25,3 +25,7 @@
 .add-session {
   cursor: pointer;
 }
+
+.session-filter {
+  margin-bottom: 10px;
+}

@@ -28,18 +28,48 @@
 
   <hr />
 
-  <!-- add event control -->
+  <!-- session area -->
   <div class="row">
+
+    <!-- add session control -->
     <div class="col-md-12 session-head">
         <div class="title-text">Sessions</div>
         <div class="link-text">
           <a class="add-session" (click)="addSession()">Add Session</a>
         </div>
     </div>
+
+    <!-- filter buttons -->
+    <div class="col-md-12 session-filter">
+      <button class="btn btn-default"
+              [class.active]="filterBy === 'all'"
+              (click)="filterBy='all'">
+        All
+      </button>
+      <button class="btn btn-default"
+              [class.active]="filterBy === 'beginner'"
+              (click)="filterBy = 'beginner'">
+        Beginner
+      </button>
+      <button class="btn btn-default"
+              [class.active]="filterBy === 'intermediate'"
+              (click)="filterBy = 'intermediate'">
+        Intermediate
+      </button>
+      <button class="btn btn-default"
+              [class.active]="filterBy === 'advanced'"
+              (click)="filterBy = 'advanced'">
+        Advanced
+      </button>
+    </div>
   </div>
 
   <!-- session list -->
-  <session-list *ngIf="!addMode" [sessions]="event?.sessions"></session-list>
+  <session-list
+    *ngIf="!addMode"
+    [sessions]="event?.sessions"
+    [filterBy]="filterBy"
+  ></session-list>
 
   <!-- create section form, hidden by default -->
   <create-session *ngIf="addMode"
