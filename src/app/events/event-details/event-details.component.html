@@ -39,8 +39,25 @@
         </div>
     </div>
 
+    <!-- sorting buttons -->
+    <div class="col-md-12 session-action-container">
+      <span>Sort By: </span>
+      <button class="btn btn-default"
+              [class.active]="sortBy === 'name'"
+              (click)="sortBy='name'">
+        By Name
+      </button>
+
+      <button class="btn btn-default"
+              [class.active]="sortBy === 'voters'"
+              (click)="sortBy='voters'">
+        By Votes
+      </button>
+    </div>
+
     <!-- filter buttons -->
-    <div class="col-md-12 session-filter">
+    <div class="col-md-12 session-action-container">
+      <span>Filter By: </span>
       <button class="btn btn-default"
               [class.active]="filterBy === 'all'"
               (click)="filterBy='all'">
@@ -69,6 +86,7 @@
     *ngIf="!addMode"
     [sessions]="event?.sessions"
     [filterBy]="filterBy"
+    [sortBy]="sortBy"
   ></session-list>
 
   <!-- create section form, hidden by default -->
