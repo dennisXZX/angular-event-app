@@ -7,8 +7,21 @@
   height: 100px;
 }
 
+.session-head {
+  position: relative;
+}
+
+.session-head .title-text {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.session-head .link-text {
+  position: absolute;
+  right: 15px;
+  top: 13px;
+}
+
 .add-session {
   cursor: pointer;
-  display: block;
-  margin-top: 25px;
 }

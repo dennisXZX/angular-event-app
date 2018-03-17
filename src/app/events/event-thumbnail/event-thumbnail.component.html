@@ -1,17 +1,17 @@
 <div [routerLink]="['/events', event.id]" class="well hoverwell thumbnail">
 
-  <h2>{{event?.name}}</h2>
-  <div>Date: {{event?.date}}</div>
+  <h2>{{ event?.name | uppercase }}</h2>
+  <div>Date: {{ event?.date | date:'shortDate' }}</div>
 
   <!-- use ngClass to bind multiple classes -->
-  <div [ngClass]="getStartTimeClass()">Time: {{event?.time}} {{getTimeLabel()}}</div>
+  <div [ngClass]="getStartTimeClass()">Time: {{ event?.time }} {{ getTimeLabel() }}</div>
 
-  <div>Price: ${{event?.price}}</div>
+  <div>Price: {{ event?.price | currency:'USD':true }}</div>
 
   <!-- only display this area when the event object has a location property -->
   <div *ngIf="event?.location">
-    <span>Address: {{event.location?.address}}</span>
-    <span class="pad-left">Location: {{event.location?.city}}, {{event.location.country}}</span>
+    <span>Address: {{ event.location?.address }}</span>
+    <span class="pad-left">Location: {{ event.location?.city }}, {{ event.location.country }}</span>
   </div>
 
   <!-- only display this area when the event object has an onlineUrl property -->

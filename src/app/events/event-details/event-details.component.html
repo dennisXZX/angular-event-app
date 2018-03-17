@@ -1,40 +1,47 @@
 <div class="container">
+
+  <!-- event logo -->
   <img [src]="event?.imageUrl" [alt]="event?.name" class="event-image">
 
+  <!-- event header -->
   <div class="row">
     <div class="col-md-11">
-      <h2>{{event?.name}} </h2>
+      <h2>{{ event?.name | uppercase }} </h2>
     </div>
   </div>
 
+  <!-- event details -->
   <div class="row">
     <div class="col-md-6">
-      <div><strong>Date:</strong> {{event?.date}}</div>
-      <div><strong>Time:</strong> {{event?.time}}</div>
-      <div><strong>Price:</strong> ${{event?.price}}</div>
+      <div><strong>Date:</strong> {{ event?.date | date:'shortDate' }}</div>
+      <div><strong>Time:</strong> {{ event?.time }}</div>
+      <div><strong>Price:</strong> {{ event?.price | currency:'USD':true }}</div>
     </div>
     <div class="col-md-6">
       <address>
         <strong>Address:</strong><br />
-        {{event?.location?.address}}<br />
-        {{event?.location?.city}}, {{event?.location?.country}}
+        {{ event?.location?.address }}<br />
+        {{ event?.location?.city }}, {{ event?.location?.country }}
       </address>
     </div>
   </div>
 
   <hr />
 
+  <!-- add event control -->
   <div class="row">
-    <div class="col-md-2">
-      <h3>Sessions</h3>
-    </div>
-    <div class="col-md-10 text-right">
-      <a class="add-session" (click)="addSession()">Add Session</a>
+    <div class="col-md-12 session-head">
+        <div class="title-text">Sessions</div>
+        <div class="link-text">
+          <a class="add-session" (click)="addSession()">Add Session</a>
+        </div>
     </div>
   </div>
 
+  <!-- session list -->
   <session-list *ngIf="!addMode" [sessions]="event?.sessions"></session-list>
 
+  <!-- create section form, hidden by default -->
   <create-session *ngIf="addMode"
                   (saveNewSession)="saveNewSession($event)"
                   (cancelAddSession)="cancelAddSession()">
