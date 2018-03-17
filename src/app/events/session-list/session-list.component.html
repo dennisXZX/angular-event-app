@@ -1,10 +1,23 @@
 <div class="row" *ngFor="let session of sessions">
   <div class="col-md-12">
-    <collapsible-well [title]="session.name">
-      <h6>{{session.presenter}}</h6>
-      <span>Duration: {{session.duration}}</span><br />
-      <span>Level: {{session.level}}</span>
-      <p>{{session.abstract}}</p>
+    <collapsible-well>
+
+      <!-- these content is being projected into collapsible-well component -->
+
+      <!-- title section -->
+      <div well-title>
+        {{ session.name }}
+        <i *ngIf="session.voters.length > 3" class="glyphicon glyphicon-fire" style="color: red"></i>
+      </div>
+
+      <!-- body section -->
+      <div well-body>
+        <h6>{{session.presenter}}</h6>
+        <span>Duration: {{session.duration}}</span><br />
+        <span>Level: {{session.level}}</span>
+        <p>{{session.abstract}}</p>
+      </div>
+
     </collapsible-well>
   </div>
 </div>

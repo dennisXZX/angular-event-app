@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
   selector: 'collapsible-well',
@@ -6,7 +6,6 @@ import { Component, Input } from "@angular/core";
   styleUrls: ['collapsible-well.component.css']
 })
 export class CollapsibleWellComponent {
-  @Input() title: string;
   visible = true;
 
   toggleContent() {
