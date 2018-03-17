@@ -18,6 +18,7 @@ import {
   CreateSessionComponent,
   SessionListComponent
 } from './events/index';
+import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
 import { Error404Component } from './errors/404.component';
 
 // services
@@ -37,6 +38,7 @@ import { appRoutes } from './routes';
     CreateEventComponent,
     CreateSessionComponent,
     SessionListComponent,
+    CollapsibleWellComponent,
     Error404Component
   ],
   imports: [
