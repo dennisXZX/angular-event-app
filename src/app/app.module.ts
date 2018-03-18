@@ -14,9 +14,11 @@ import {
   CreateEventComponent,
   EventRouteActivator,
   EventService,
+  VoterService,
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
+  UpvoteComponent,
   DurationPipe
 } from './events/index';
 import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
@@ -39,6 +41,7 @@ import { appRoutes } from './routes';
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
+    UpvoteComponent,
     Error404Component,
     DurationPipe
   ],
@@ -50,6 +53,7 @@ import { appRoutes } from './routes';
   ],
   providers: [
     EventService,
+    VoterService,
     EventRouteActivator,
     EventListResolver,
     AuthService

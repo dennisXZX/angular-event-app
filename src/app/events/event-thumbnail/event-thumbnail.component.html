@@ -6,7 +6,7 @@
   <!-- use ngClass to bind multiple classes -->
   <div [ngClass]="getStartTimeClass()">Time: {{ event?.time }} {{ getTimeLabel() }}</div>
 
-  <div>Price: {{ event?.price | currency:'USD':true }}</div>
+  <div>Price: {{ event?.price | currency:'USD':'symbol' }}</div>
 
   <!-- only display this area when the event object has a location property -->
   <div *ngIf="event?.location">
