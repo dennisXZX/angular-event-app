@@ -21,6 +21,8 @@ export class NavbarComponent {
       this.foundSessions = sessions;
 
       console.log(this.foundSessions);
+      this.searchTerm = '';
+      alert('search result is in the console.');
     }));
   }
 
